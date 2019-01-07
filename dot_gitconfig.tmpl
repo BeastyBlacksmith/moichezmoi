@@ -1,0 +1,20 @@
+[user]
+	name = {{ .git.name }}
+	email = {{ .git.email }}
+[alias]  
+        hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+[gui]
+	recentrepo = {{ .chezmoi.homedir }}/Projects/molemoto/MM
+[push]
+	default = simple
+[core]
+	excludesfile = {{ .chezmoi.homedir }}/.gitignore_global
+	autocrlf = input
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[commit]
+	template = {{ .chezmoi.homedir }}/.stCommitMsg
