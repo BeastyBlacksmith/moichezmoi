@@ -1,4 +1,7 @@
 using Logging
+
+const PLOTS_DEFAULTS = Dict(:theme => :wong2)
+
 const isdebug = Ref(false)
 global_logger(ConsoleLogger(stderr,Logging.Info, show_limited = false))
 function DEBUG()
