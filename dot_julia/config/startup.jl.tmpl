@@ -15,9 +15,11 @@ function DEBUG()
     if ISDEBUG[]
         global_logger(ConsoleLogger(stderr,Logging.Info, show_limited = false))
         ISDEBUG[] = false
+        @info "Exit debug mode"
         return nothing
     end
     global_logger(ConsoleLogger(stderr,Logging.Debug, show_limited = false))
+    @info "Enter debug mode"
     ISDEBUG[] = true
     return nothing
 end # function
