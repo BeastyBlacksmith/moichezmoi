@@ -1,5 +1,11 @@
 using Logging
 
+
+{{- if eq .chezmoi.os "darwin" }}
+    ENV["EDITOR"] = "mvim"
+{{- else }}  
+    ENV["EDITOR"] = "gvim"
+{{- end }}  
 const PLOTS_DEFAULTS = Dict(:theme => :wong2)
 
 const ISDEBUG = Ref(false)
